@@ -1,62 +1,47 @@
 <script setup>
-import { ref } from 'vue'
+import appLayout from '@/components/layout/appLayout.vue'
+import { useDisplay } from 'vuetify'
 
-const theme = ref('light')
-
-function onClick() {
-  theme.value = theme.value === 'light' ? 'dark' : 'light'
-}
+const { mobile } = useDisplay()
 </script>
 
 <template>
-  <v-responsive class="border rounded">
-    <v-app :theme="theme">
-      <v-app-bar class="px-3" color="grey-darken-1">
-        <v-spacer></v-spacer>
+  <appLayout>
+    <template #content>
+      <v-row>
+        <v-col cols="12" md="6" class="mx-auto pt-16">
+          <v-card class="mx-auto" elevation="24">
+            <v-card-title class="text-center">
+              <v-img
+                class="mx-auto"
+                src="public/images/logo-favicon.png"
+                :width="mobile ? '65%' : '25%'"
+              ></v-img>
+              <h5 class="font-weight-black">CSU Library Room Reservation System</h5>
+              <p>Login Form</p>
+            </v-card-title>
 
-        <v-btn
-          :prepend-icon="theme === 'light' ? 'mdi-weather-sunny' : 'mdi-weather-night'"
-          text="Toggle Theme"
-          slim
-          @click="onClick"
-        ></v-btn>
-      </v-app-bar>
+            <v-card-text class="bg-surface-light pt-4">
+              <v-divider class="my-5"></v-divider>
+              <v-form fast-fail @submit.prevent>
+                <v-text-field label="Email" variant="outlined"></v-text-field>
 
-      <v-main>
-        <v-container>
-          <v-row>
-            <v-col cols="12" md="6" class="mx-auto pt-16">
-              <v-card class="mx-auto" prepend-icon="mdi-login" subtitle="Login" elevation="24" >
+                <v-text-field label="Password" type="password" variant="outlined"></v-text-field>
 
-                <template v-slot:title>
-                  <span class="font-weight-black">CSU Library Room Reservation System</span>
-                </template>
+                <v-btn class="mt-2" type="submit" block color="success" prepend-icon="mdi-login"
+                  >Login
+                </v-btn>
+              </v-form>
 
-                <v-card-text class="bg-surface-light pt-4">
-                  <v-form fast-fail @submit.prevent>
-                    <v-text-field label="Email" variant="outlined"></v-text-field>
-
-                    <v-text-field
-                      label="Password"
-                      type="password"
-                      variant="outlined"
-                    ></v-text-field>
-
-                    <v-btn class="mt-2" type="submit" block>Submit</v-btn>
-                  </v-form>
-
-                  <v-divider class="my-5">  </v-divider>
-                    <h5 class="text-center">Don't have Account? <RouterLink class="text-primary" to="/register">Click here to Register</RouterLink></h5>
-                </v-card-text>
-              </v-card>
-            </v-col>
-          </v-row>
-        </v-container>
-      </v-main>
-
-      <v-footer color="grey-darken-1" border app
-        >2024 - CSU Library Room Reservation System
-      </v-footer>
-    </v-app>
-  </v-responsive>
+              <v-divider class="my-5"> </v-divider>
+              <h5 class="text-center">
+                Don't have Account?
+                <RouterLink class="text-primary" to="/register">Click here to Register</RouterLink>
+              </h5>
+            </v-card-text>
+          </v-card>
+        </v-col>
+      </v-row>
+    </template>
+  </appLayout>
 </template>
