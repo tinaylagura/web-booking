@@ -1,10 +1,11 @@
 <script setup>
 import { ref } from 'vue'
 
-const theme = ref('light')
+const theme = ref(localStorage.getItem('theme') ?? 'light')
 
 function onClick() {
   theme.value = theme.value === 'light' ? 'dark' : 'light'
+  localStorage.setItem('theme', theme.value)
 }
 </script>
 
@@ -33,7 +34,7 @@ function onClick() {
       </v-main>
 
       <v-footer
-      class="font-weight-bold"
+        class="font-weight-bold"
         :color="theme === 'light' ? 'grey-lighten-1' : 'grey-darken-3'"
         elevation="24"
         border
