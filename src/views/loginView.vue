@@ -14,12 +14,12 @@ const { mobile } = useDisplay()
             <v-card-title class="text-center">
               <v-img
                 class="mx-auto"
-                src="public/images/logo-favicon.png"
+                src="/images/logo-favicon.png"
                 :width="mobile ? '65%' : '25%'"
                 alt="CSU Library Logo" 
               ></v-img>
               <h5 class="font-weight-black">CSU Library Room Reservation System</h5>
-              <p>Login Form</p>
+              <p class="font-weight-bold">Login Form</p>
             </v-card-title>
 
             <v-card-text class="bg-surface-light pt-4">
