@@ -16,6 +16,7 @@ const { mobile } = useDisplay()
                 class="mx-auto"
                 src="public/images/logo-favicon.png"
                 :width="mobile ? '65%' : '25%'"
+                alt="CSU Library Logo" 
               ></v-img>
               <h5 class="font-weight-black">CSU Library Room Reservation System</h5>
               <p>Login Form</p>
@@ -23,11 +24,11 @@ const { mobile } = useDisplay()
 
             <v-card-text class="bg-surface-light pt-4">
               <v-divider class="my-5"></v-divider>  
-              <loginForm> </loginForm>
+              <loginForm></loginForm>
 
-              <v-divider class="my-5"> </v-divider>
+              <v-divider class="my-5"></v-divider>
               <h5 class="text-center">
-                Don't have Account?
+                Don't have an account?
                 <RouterLink class="text-primary font-weight-black" to="/register">Click here to Register</RouterLink>
               </h5>
             </v-card-text>
