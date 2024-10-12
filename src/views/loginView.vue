@@ -8,6 +8,7 @@ const { mobile } = useDisplay()
 <template>
   <appLayout>
     <template #content>
+      <v-container-fluid>
       <v-row>
         <v-col cols="12" md="6" class="mx-auto pt-16">
           <v-card class="mx-auto" elevation="24">
@@ -35,6 +36,7 @@ const { mobile } = useDisplay()
           </v-card>
         </v-col>
       </v-row>
+    </v-container-fluid>
     </template>
   </appLayout>
 </template>
