@@ -38,7 +38,7 @@ function onClick() {
         elevation="24"
         border
         app
-        >2024 - CSU Library Room Reservation System
+        ><h5>2024 - CSU Library Room Reservation System</h5>
       </v-footer>
     </v-app>
   </v-responsive>
